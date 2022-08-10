@@ -29,6 +29,26 @@ void solve(int i,vector<int> &nums,vector<int> &ds,int k,int s,vector<vector<int
 };
 
 
+
+
+//2nd method
+int count(int i,vector<int> &nums,int k,int s){
+        if(i == nums.size())
+        {
+            if(k == s)
+                return 1;
+            return 0;
+        }
+        
+        s+=nums[i];
+        int l=solve(i+1,nums,k,s);
+        
+        s-=nums[i];
+        int r=solve(i+1,nums,k,s);
+        return l+r;
+    }
+
+
 //Input: nums= [3,5,6,7,2,4]  target=9
 
 //Output:
